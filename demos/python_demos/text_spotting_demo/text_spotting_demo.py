@@ -363,21 +363,24 @@ def main():
             for layer, stats in perf_counts.items():
                 print('{:<70} {:<15} {:<15} {:<15} {:<10}'.format(layer, stats['layer_type'], stats['exec_type'],
                                                                   stats['status'], stats['real_time']))
+        print(f"frame shape{frame.shape}")
+        cv2.imwrite("new_frame.png", frame)
+        
 
-        if not args.no_show:
+        #if not args.no_show:
             # Show resulting image.
-            cv2.imshow('Results', frame)
-        render_end = time.time()
-        render_time = render_end - render_start
+        #    cv2.imshow('Results', frame)
+        #render_end = time.time()
+        #render_time = render_end - render_start
 
-        if not args.no_show:
-            key = cv2.waitKey(args.delay)
-            esc_code = 27
-            if key == esc_code:
-                break
+        #if not args.no_show:
+        #    key = cv2.waitKey(args.delay)
+        #    esc_code = 27
+        #    if key == esc_code:
+        #        break
 
-    cv2.destroyAllWindows()
-    cap.release()
+    #cv2.destroyAllWindows()
+    #cap.release()
 
 
 if __name__ == '__main__':
